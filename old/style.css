@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.roleta-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.roleta {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid #333;
+    overflow: hidden;
+    transform: rotate(0deg);
+    transition: transform 5s cubic-bezier(0.15, 0.95, 0.5, 1.5);
+}
+
+.roleta ul {
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    transform: rotate(30deg); /* Ajuste a rotação inicial */
+}
+
+.roleta ul li {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 0%;
+    transform: rotate(calc(var(--i) * 30deg)) translateX(-100%);
+    background-color: hsl(calc(var(--i) * 30), 100%, 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #fff;
+}
+
+.seta {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 20px solid red;
+    transform: translateX(-50%);
+}
+
+button#girar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
